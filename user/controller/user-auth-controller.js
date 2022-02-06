@@ -1,4 +1,6 @@
 exports.register = (req, res) => {
+    console.log(req.url);
+    console.log(req.body);
   console.log("this is register request");
   res.send("This is Register");
 };
