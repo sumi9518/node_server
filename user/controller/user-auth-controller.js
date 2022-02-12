@@ -1,8 +1,13 @@
+
+const userModel = require("../models/user");
+const userRepo = require("../repositories/user")
+
 exports.register = (req, res) => {
-    console.log(req.url);
-    console.log(req.body);
-  console.log("this is register request");
-  res.send("This is Register");
+  const newUser = new userModel(req.body.name, req.body.email, req.body.password, req.body.gender)
+  userRepo.addUser(newUser, () => {
+    res.send("User is added")
+  })
+  
 };
 
 exports.login = (req, res) => {
